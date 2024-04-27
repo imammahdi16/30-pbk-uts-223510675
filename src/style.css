@@ -1,0 +1,237 @@
+/* Resetting */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+  font-family: sans-serif;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #c0d6df;
+}
+
+/* Section Styles */
+section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh; /* Use min-height to fill the screen but allow content to expand */
+  width: 100%;
+}
+
+/* Heading Styles */
+h1 {
+  font-size: 45px;
+  color: #515151;
+  margin: 30px 0;
+}
+
+/* Form Styles */
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 20px; /* Added padding for better spacing */
+  width: 100%; /* Full width to center on small screens */
+  max-width: 400px; /* Max width for larger screens */
+  border-radius: 50px;
+  background: linear-gradient(145deg, #adc1c9, #cde5ef);
+  box-shadow: 20px 20px 60px #a3b6be, -20px -20px 60px #ddf6ff;
+}
+
+/* Input Styles */
+input[type="text"] {
+  border: none;
+  border-bottom: 2px solid #ddd;
+  background-color: #fff;
+  outline: none;
+  font-size: 18px;
+  padding: 10px;
+  width: 60%;
+  margin-right: 10px;
+}
+
+/* Button Styles */
+button[type="submit"] {
+  border: none;
+  outline: none;
+  font-size: 18px;
+  padding: 10px 20px;
+  background-color: #727872;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: 0.25s;
+}
+
+button[type="submit"]:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+/* List Styles */
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%; /* Full width to center on small screens */
+  max-width: 80%; /* Max width for larger screens */
+}
+
+/* List Item Styles */
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Checkbox Styles */
+li input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+/* Button within List Item Styles */
+li button {
+  border: none;
+  outline: none;
+  font-size: 18px;
+  background-color: transparent;
+  color: #f2a6a6;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+li button:hover {
+  color: #000;
+  transform: scale(1.05);
+}
+
+/* Task Text Styles */
+li p {
+  flex-grow: 1;
+  cursor: pointer;
+}
+
+/* Done Task Text Styles */
+.done {
+  text-decoration: line-through;
+  color: #ffc0be;
+}
+
+/* Filter Buttons Styles */
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.filter-button {
+  margin: 0 5px;
+  padding: 10px 15px;
+  border: none;
+  background-color: #727872;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.filter-button:hover {
+  background-color: #5a6259;
+}
+
+/* Responsive styles */
+@media only screen and (max-width: 768px) {
+  body {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  section {
+    height: auto;
+    padding: 20px 0;
+  }
+
+  form {
+    flex-direction: column;
+    width: 90%;
+    margin-bottom: 20px;
+  }
+
+  input[type="text"],
+  button[type="submit"] {
+    width: 80%;
+    margin: 10px 0;
+  }
+
+  .filter-buttons {
+    flex-direction: column;
+  }
+
+  .filter-button {
+    width: 80%;
+    margin: 5px 0;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  h1 {
+    font-size: 36px;
+  }
+}
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.filter-button {
+  margin: 0 5px;
+  padding: 10px 15px;
+  border: none;
+  background-color: #727872;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.filter-button:hover {
+  background-color: #5a6259;
+}
+/* Task Filter Buttons Styles */
+.task-filter-buttons {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.task-filter-buttons button {
+  cursor: pointer;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  transition: background-color 0.3s;
+}
+
+.task-filter-buttons button:hover {
+  background-color: #e0e0e0;
+}
+
+.task-filter-buttons button.active {
+  background-color: #d1d1d1;
+}
