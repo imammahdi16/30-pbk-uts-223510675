@@ -1,6 +1,12 @@
 <template>
   <form @submit.prevent="submitTask">
-    <input type="text" v-model="newTask" placeholder="Add a new task" />
+    <input
+      type="text"
+      v-model="newTask"
+      placeholder="Add a new task"
+      id="taskInput"
+      name="taskInput"
+    />
     <button type="submit">Add</button>
   </form>
 </template>

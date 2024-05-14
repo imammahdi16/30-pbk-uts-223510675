@@ -20,7 +20,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from "vue";
+import { ref, onMounted, computed, watchEffect } from "vue";
 import Header from "./components/Header.vue";
 import TaskFilter from "./components/TaskFilter.vue";
 import AddTaskForm from "./components/AddTaskForm.vue";
@@ -28,10 +28,12 @@ import TaskList from "./components/TaskList.vue";
 import UserSelect from "./components/UserSelect.vue";
 import PostList from "./components/PostList.vue";
 
-const tasks = ref([
-  { text: "Learn Vue.js", done: false },
-  { text: "Build a project", done: false },
-]);
+const tasks = ref(
+  JSON.parse(localStorage.getItem("tasks")) || [
+    { text: "Learn Vue.js", done: false },
+    { text: "Build a project", done: false },
+  ]
+);
 
 const filter = ref("all");
 const users = ref([]);
@@ -58,6 +60,11 @@ const removeTask = (task) => {
 const cancelTask = (task) => {
   task.done = false;
 };
+
+// Simpan tasks ke localStorage setiap kali ada perubahan
+watchEffect(() => {
+  localStorage.setItem("tasks", JSON.stringify(tasks.value));
+});
 
 const navigate = (view) => {
   currentView.value = view;
