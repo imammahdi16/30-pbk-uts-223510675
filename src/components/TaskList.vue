@@ -1,13 +1,14 @@
 <template>
   <ul>
     <li
-      v-for="task in filteredTasks"
+      v-for="(task, index) in filteredTasks"
       :key="task.text"
       class="task-item"
-      @click="toggleDone(task)"
     >
       <input
         type="checkbox"
+        :id="'checkbox-' + index"
+        :name="'checkbox-' + task.text"
         v-model="task.done"
         @click.stop="toggleDone(task)"
       />

@@ -2,7 +2,7 @@
   <div>
     <Header @navigate="navigate" />
     <div v-if="currentView === 'todos'">
-      <h1>Todos</h1>
+      <h1>Hammam Todos</h1>
       <TaskFilter @change-filter="changeFilter" />
       <AddTaskForm @add-task="addTask">
         <template #extra-button>
