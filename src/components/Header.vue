@@ -1,33 +1,58 @@
 <template>
-  <header>
+  <div>
     <nav>
-      <ul>
-        <li @click="navigate('todos')">Todos</li>
-        <li @click="navigate('posts')">Posts</li>
+      <ul class="header-menu">
+        <li>
+          <q-btn-dropdown
+            flat
+            color="primary"
+            label="Menu"
+            :ripple="{ color: 'grey-8' }"
+          >
+            <q-item to="/todos" clickable>
+              <q-item-section> Todos </q-item-section>
+            </q-item>
+            <q-item to="/posts" clickable>
+              <q-item-section> Posts </q-item-section>
+            </q-item>
+            <q-item to="/albums" clickable>
+              <q-item-section> Albums </q-item-section>
+            </q-item>
+          </q-btn-dropdown>
+        </li>
       </ul>
     </nav>
-  </header>
+  </div>
 </template>
 
 <script setup>
-import { defineEmits } from "vue";
+import { defineProps } from 'vue';
+import { useRouter } from 'vue-router';
 
-const emit = defineEmits(["navigate"]);
-
-const navigate = (section) => {
-  emit("navigate", section);
-};
+const props = defineProps({
+});
+const router = useRouter();
 </script>
 
 <style scoped>
 nav ul {
-  display: flex;
-  list-style-type: none;
+  list-style: none;
   padding: 0;
+  margin-top: 10px;
+  display: flex; 
+  justify-content: center; 
 }
 
-nav li {
-  margin-right: 20px;
-  cursor: pointer;
+.header-menu {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.header-btn {
+  margin-right: 10px;
+  text-transform: capitalize;
 }
 </style>
+

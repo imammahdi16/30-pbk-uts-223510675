@@ -1,7 +1,7 @@
 <template>
   <div class="task-filter-buttons">
-    <button @click="$emit('change-filter', 'all')">All</button>
-    <button @click="$emit('change-filter', 'unfinished')">Unfinished</button>
+    <q-btn @click="$emit('change-filter', 'all')" label="All" color="primary" />
+    <q-btn @click="$emit('change-filter', 'unfinished')" label="Unfinished" color="primary" />
   </div>
 </template>
 

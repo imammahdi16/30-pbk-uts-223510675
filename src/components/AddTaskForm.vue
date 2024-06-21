@@ -1,17 +1,19 @@
 <template>
-  <form @submit.prevent="submitTask">
-    <input
+  <q-form @submit.prevent="submitTask" class="task-form">
+    <q-input
       ref="taskInput"
-      type="text"
       v-model="newTask"
       placeholder="Add a new task"
+      outlined
+      dense
       id="taskInput"
       name="taskInput"
+      class="task-input"
     />
-    <button type="submit">Add</button>
+    <q-btn type="submit" label="Add" color="primary" class="add-button" />
     <slot name="extra-button"></slot>
     <!-- Slot untuk tombol tambahan -->
-  </form>
+  </q-form>
 </template>
 
 <script setup>
@@ -36,3 +38,23 @@ onMounted(() => {
   }
 });
 </script>
+
+<style scoped>
+.task-form {
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+}
+
+.task-input {
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 8px;
+}
+
+.add-button {
+  width: 100%;
+  max-width: 300px;
+  margin-top: 8px;
+}
+</style>

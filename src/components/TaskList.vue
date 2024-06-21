@@ -1,23 +1,27 @@
 <template>
-  <ul>
-    <li
-      v-for="(task, index) in filteredTasks"
-      :key="task.text"
-      class="task-item"
-    >
-      <input
-        type="checkbox"
-        :id="'checkbox-' + index"
-        :name="'checkbox-' + task.text"
-        v-model="task.done"
-        @click.stop="toggleDone(task)"
-      />
-      <span :class="{ done: task.done }">{{ task.text }}</span>
-      <button @click.stop.prevent="cancelTask(task)">Void</button>
-      <button @click.stop.prevent="removeTask(task)">Delete</button>
-    </li>
-    <slot></slot>
-  </ul>
+  <q-list bordered>
+    <q-item v-for="(task, index) in filteredTasks" :key="task.text">
+      <q-item-section>
+        <q-checkbox
+          v-model="task.done"
+          :label="task.text"
+          @click.stop="toggleDone(task)"
+        />
+      </q-item-section>
+      <q-item-section>
+        <q-btn
+          color="negative"
+          icon="delete"
+          @click.stop.prevent="removeTask(task)"
+        />
+        <q-btn
+          color="warning"
+          icon="cancel"
+          @click.stop.prevent="cancelTask(task)"
+        />
+      </q-item-section>
+    </q-item>
+  </q-list>
 </template>
 
 <script setup>
